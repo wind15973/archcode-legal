@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArchCode 隱私權政策</title>
+<meta name="description" content="ArchCode 台灣建築法規查詢 App 的隱私權政策：不收集個人資料、無帳號、無追蹤。">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --rule: #e3e3e6;
+    --accent: #0a63c9;
+    --card: #f6f6f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131316;
+      --fg: #ececef;
+      --muted: #9a9aa2;
+      --rule: #2c2c31;
+      --accent: #6aa9f5;
+      --card: #1c1c21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #131316;
+    --fg: #ececef;
+    --muted: #9a9aa2;
+    --rule: #2c2c31;
+    --accent: #6aa9f5;
+    --card: #1c1c21;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+                 "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  h1 { font-size: 1.9rem; line-height: 1.3; margin: 0 0 .35rem; letter-spacing: -.01em; }
+  h2 {
+    font-size: 1.2rem; margin: 2.75rem 0 .75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--rule); letter-spacing: -.005em;
+  }
+  p, li { margin: 0 0 1rem; }
+  ul { padding-left: 1.3rem; }
+  a { color: var(--accent); }
+  .updated { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+  .lede {
+    background: var(--card); border-radius: .8rem; padding: 1.1rem 1.25rem;
+    margin: 0 0 2rem; font-weight: 600;
+  }
+  .lede p { margin: 0; }
+  .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+  table { border-collapse: collapse; width: 100%; min-width: 22rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9em; background: var(--card); padding: .1em .35em; border-radius: .25rem;
+  }
+  .note {
+    margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: .95rem;
+  }
+  .mail { font-size: 1.05rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ArchCode 隱私權政策</h1>
+  <p class="updated">最後更新：2026 年 8 月 20 日</p>
+
+  <p>ArchCode（以下稱「本 App」）是一款台灣建築法規查詢與檢核輔助工具。本政策說明本 App 如何處理您的資料。</p>
+
+  <div class="lede">
+    <p>本 App 不收集、不上傳、不分享您的個人資料。沒有帳號、沒有登入、沒有廣告或分析追蹤。您在 App 內建立的所有內容都只存在您自己的裝置上。</p>
+  </div>
+
+  <h2>一、我們不收集的資料</h2>
+  <p>本 App <strong>不會</strong>收集下列任何資料：</p>
+  <ul>
+    <li>姓名、電子郵件、電話、地址等身分識別資料</li>
+    <li>帳號或密碼（本 App 沒有帳號機制）</li>
+    <li>位置資訊（本 App 不請求定位權限）</li>
+    <li>通訊錄、相片、行事曆或其他裝置上的個人檔案</li>
+    <li>廣告識別碼（IDFA）或任何跨 App 追蹤識別碼</li>
+    <li>使用行為分析、當機回報或遙測資料</li>
+  </ul>
+  <p>本 App <strong>未內嵌任何廣告聯播網、分析工具或第三方追蹤 SDK</strong>。唯一使用的第三方程式庫是
+    <a href="https://github.com/groue/GRDB.swift">GRDB.swift</a>，一個純本機的 SQLite 存取套件，不具備任何連網功能。</p>
+
+  <h2>二、儲存在您裝置上的資料</h2>
+  <p>下列內容由您操作產生，儲存於本 App 在您裝置上的私有沙盒資料庫，<strong>不會傳送至任何伺服器</strong>：</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>內容</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>收藏的法規條文</td><td>您主動加入收藏的條文</td></tr>
+        <tr><td>最近查詢與點閱紀錄</td><td>您搜尋過的關鍵字與開啟過的條文</td></tr>
+        <tr><td>檢核清單勾選狀態與附註</td><td>您在檢核清單上的進度與自行輸入的備註</td></tr>
+        <tr><td>工作專案資料</td><td>專案名稱、基地資訊、面積等您自行輸入的欄位</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>這些資料受 iOS 系統的 App 沙盒保護。若您啟用 iCloud 裝置備份，iOS 可能依系統設定將其納入備份，
+    該備份由 Apple 依其隱私權政策處理，本 App 無法讀取。</p>
+  <p><strong>刪除方式</strong>：於 App 內設定頁可清除收藏與紀錄；刪除本 App 即會一併移除上述全部本機資料。
+    我們沒有這些資料的副本，因此無法代為復原。</p>
+
+  <h2>三、法規資料為離線內建</h2>
+  <p>全國法規資料（法規本文與條文）已於下載時內建於本 App 中，<strong>您的搜尋與閱讀完全在裝置本機進行，不會送出任何查詢內容</strong>。</p>
+  <p>法規資料來源為法務部〔中文法規_法律資料檔〕〔中文法規_命令資料檔〕，經政府資料開放平臺依政府資料開放授權條款（第 1 版）釋出。</p>
+
+  <h2>四、唯一的對外連線：地號查詢</h2>
+  <p>當您在「專案管理」中使用地號查詢功能時，本 App 會向<strong>內政部國土測繪中心公開 API</strong>
+    （<code>api.nlsc.gov.tw</code>）送出查詢，內容僅包含：</p>
+  <ul>
+    <li>您所選擇的縣市、鄉鎮市區、地段</li>
+    <li>您所輸入的地號</li>
+  </ul>
+  <p>送出的內容<strong>不包含任何個人識別資訊</strong>，也不包含您的專案名稱、備註或其他 App 內資料。
+    該連線使用暫時性（ephemeral）工作階段，不保存 Cookie 或快取。</p>
+  <p>您如未使用地號查詢功能，本 App 全程不會對外連線。</p>
+  <p>國土測繪中心對其 API 之資料處理，適用該機關之相關規定，非本 App 所能控制。</p>
+
+  <h2>五、開啟外部連結</h2>
+  <p>本 App 於下列情形會以您裝置的瀏覽器開啟外部網站：</p>
+  <ul>
+    <li>法規附件檔案（PDF 等），連往全國法規資料庫 <code>law.moj.gov.tw</code></li>
+    <li>「在全國法規資料庫檢視原始法規」連結</li>
+    <li>設定頁的資料來源與授權條款連結，連往政府資料開放平臺 <code>data.gov.tw</code></li>
+  </ul>
+  <p>離開本 App 後，您在該等網站的活動適用各該網站之隱私權政策。</p>
+
+  <h2>六、兒童隱私</h2>
+  <p>本 App 為專業工具，並非以兒童為對象，亦不會在知情的情況下收集兒童之個人資料。
+    由於本 App 完全不收集個人資料，此情形對所有使用者一致。</p>
+
+  <h2>七、資料分享</h2>
+  <p>本 App 不收集個人資料，因此<strong>沒有任何個人資料可供分享、出售或移轉</strong>予第三方。</p>
+
+  <h2>八、您的權利</h2>
+  <p>由於本 App 不持有您的任何個人資料，關於個人資料之查詢、更正或刪除等請求，對本 App 而言不生適用問題。
+    您裝置上的資料由您完全掌控，可隨時於 App 內清除或刪除本 App。</p>
+
+  <h2>九、本政策之變更</h2>
+  <p>本政策如有修訂，將更新本頁最上方之「最後更新」日期。涉及重大變更時，將另於 App 更新說明中敘明。</p>
+
+  <h2>十、聯絡方式</h2>
+  <p>對本政策有任何疑問，請來信：</p>
+  <p class="mail"><a href="mailto:wind15973@gmail.com">wind15973@gmail.com</a></p>
+
+  <p class="note"><strong>附註：關於檢核清單內容</strong><br>
+    本 App 之檢核清單係依內政部公告之法規與附表彙整，目的為提供查核建議與參考，不構成法律意見，
+    亦非建築師、消防設備師或其他專業技師之簽證行為。各檢核項目之適用條件依個案之樓層、面積、
+    構造與基地條件而異，實際申辦請以主管機關審查結果為準。此為使用條件說明，與個人資料保護無涉，併此敘明。</p>
+</main>
+</body>
+</html>
