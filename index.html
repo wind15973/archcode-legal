@@ -62,6 +62,7 @@
   table { border-collapse: collapse; width: 100%; min-width: 22rem; font-size: .95rem; }
   th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
   th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  h3 { font-size: 1.02rem; margin: 1.4rem 0 .5rem; }
   code {
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: .9em; background: var(--card); padding: .1em .35em; border-radius: .25rem;
@@ -76,7 +77,7 @@
 <body>
 <main>
   <h1>ArchCode 隱私權政策</h1>
-  <p class="updated">最後更新：2026 年 8 月 20 日</p>
+  <p class="updated">最後更新：2026 年 11 月 11 日</p>
 
   <p>ArchCode（以下稱「本 App」）是一款台灣建築法規查詢與檢核輔助工具。本政策說明本 App 如何處理您的資料。</p>
 
@@ -116,28 +117,79 @@
     我們沒有這些資料的副本，因此無法代為復原。</p>
 
   <h2>三、法規資料為離線內建</h2>
-  <p>全國法規資料（法規本文與條文）已於下載時內建於本 App 中，<strong>您的搜尋與閱讀完全在裝置本機進行，不會送出任何查詢內容</strong>。</p>
-  <p>法規資料來源為法務部〔中文法規_法律資料檔〕〔中文法規_命令資料檔〕，經政府資料開放平臺依政府資料開放授權條款（第 1 版）釋出。</p>
 
-  <h2>四、唯一的對外連線：地號查詢</h2>
-  <p>當您在「專案管理」中使用地號查詢功能時，本 App 會向<strong>內政部國土測繪中心公開 API</strong>
-    （<code>api.nlsc.gov.tw</code>）送出查詢，內容僅包含：</p>
+  <p>中央與地方法規資料（法規本文與條文）已於下載時內建於本 App 中，<strong>您的搜尋與閱讀完全在裝置本機進行，不會送出任何查詢內容</strong>。</p>
+
+  <p>中央法規資料來源為法務部〔中文法規_法律資料檔〕〔中文法規_命令資料檔〕，經政府資料開放平臺依
+    政府資料開放授權條款（第 1 版）釋出；地方法規資料擷取自各縣市政府公開之法規查詢網站。</p>
+
+  <h2>四、唯一會對外連線的功能：專案管理的地號查詢</h2>
+
+  <p>本 App 只有在「專案管理」的基地資料表單中才會對外連線，分為下列三種情形。</p>
+
+  <h3>（一）載入縣市、鄉鎮市區、地段選單</h3>
+
+  <p>開啟基地資料表單時，本 App 會向<strong>內政部國土測繪中心公開 API</strong>（<code>api.nlsc.gov.tw</code>）下載縣市清單；
+    您選擇縣市或鄉鎮市區後，再下載對應的鄉鎮市區或地段清單。這些請求僅包含您所選擇的縣市、鄉鎮市區代碼，
+    不包含您輸入的任何資料。</p>
+
+  <h3>（二）地籍資料查詢</h3>
+
+  <p>您執行地號查詢時，本 App 會向國土測繪中心公開 API 送出查詢，內容僅包含：</p>
+
   <ul>
     <li>您所選擇的縣市、鄉鎮市區、地段</li>
     <li>您所輸入的地號</li>
   </ul>
-  <p>送出的內容<strong>不包含任何個人識別資訊</strong>，也不包含您的專案名稱、備註或其他 App 內資料。
-    該連線使用暫時性（ephemeral）工作階段，不保存 Cookie 或快取。</p>
-  <p>您如未使用地號查詢功能，本 App 全程不會對外連線。</p>
-  <p>國土測繪中心對其 API 之資料處理，適用該機關之相關規定，非本 App 所能控制。</p>
+
+  <h3>（三）山坡地範圍查詢（地籍查詢成功後自動進行）</h3>
+
+  <p>地籍資料查詢成功後，本 App 會<strong>自動</strong>以同一筆土地的識別資料（依各查詢服務所需，包含縣市、鄉鎮市區、
+    地段、地號或地政事務所代碼），向該土地所在地的主管機關公開查詢服務查詢是否位於山坡地範圍：</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>土地所在地</th><th>查詢對象</th></tr></thead>
+      <tbody>
+        <tr><td>臺北市</td><td>臺北市政府山坡地查詢服務（<code>swc.taipei</code>）</td></tr>
+        <tr><td>新北市</td><td>新北市政府山坡地查詢服務（<code>www.ntpcswc.ntpc.gov.tw</code>）</td></tr>
+        <tr><td>臺中市</td><td>臺中市政府山坡地查詢服務（<code>wrbeochi.taichung.gov.tw</code>）</td></tr>
+        <tr><td>臺南市</td><td>臺南市政府山坡地查詢服務（<code>hill.tainan.gov.tw</code>）</td></tr>
+        <tr><td>桃園市</td><td>桃園市政府地籍定位服務（<code>winfo.tycg.gov.tw</code>），取得該筆土地的坐標後，再依坐標向 <code>compute.geodac.tw</code> 下載涵蓋該位置的山坡地範圍圖資圖塊</td></tr>
+        <tr><td>高雄市</td><td>不自動查詢，僅提供高雄市政府查詢網站之連結</td></tr>
+        <tr><td>其他縣市</td><td>農業部農村發展及水土保持署山坡地查詢服務（<code>serv.ardswc.gov.tw</code>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>桃園市的圖資圖塊請求不包含地號或精確坐標，但圖塊編號對應約 2.2 公里見方的範圍，
+    因此接收端可得知查詢土地的大致位置。</p>
+
+  <h3>共通說明</h3>
+
+  <p>上述所有查詢送出的內容<strong>均為土地資料，不包含您的姓名、聯絡方式或裝置識別碼</strong>，也不包含您的專案名稱、
+    備註或其他 App 內資料。與任何網路連線相同，接收端伺服器可看到連線的 IP 位址，以及 iOS 系統預設附帶的
+    App 名稱、版本與系統版本資訊；本 App 不會另外附加任何識別資訊。
+    各連線均使用暫時性（ephemeral）工作階段，不將 Cookie 或快取寫入裝置；
+    部分查詢服務要求的工作階段 Cookie 僅暫存於記憶體，App 關閉即消失。</p>
+
+  <p>您如未開啟「專案管理」的基地資料表單，本 App 全程不會對外連線。</p>
+
+  <p>上述各機關對其查詢服務之資料處理，適用各該機關之相關規定，非本 App 所能控制。</p>
 
   <h2>五、開啟外部連結</h2>
+
   <p>本 App 於下列情形會以您裝置的瀏覽器開啟外部網站：</p>
+
   <ul>
-    <li>法規附件檔案（PDF 等），連往全國法規資料庫 <code>law.moj.gov.tw</code></li>
-    <li>「在全國法規資料庫檢視原始法規」連結</li>
+    <li>法規附件檔案（PDF 等）與「檢視原始法規」連結：中央法規連往全國法規資料庫 <code>law.moj.gov.tw</code>，地方法規連往各縣市政府法規查詢網站</li>
     <li>設定頁的資料來源與授權條款連結，連往政府資料開放平臺 <code>data.gov.tw</code></li>
+    <li>設定頁的「隱私權政策」連結，連往本頁（<code>wind15973.github.io</code>）</li>
+    <li>專案檢討結果中的參考法規連結，例如內政部營建法規系統 <code>glrs.moi.gov.tw</code></li>
+    <li>都市計畫資料的「開啟原始資料」連結，連往各縣市政府都市計畫或法規網站</li>
+    <li>山坡地查詢結果中各主管機關查詢網站的連結</li>
   </ul>
+
   <p>離開本 App 後，您在該等網站的活動適用各該網站之隱私權政策。</p>
 
   <h2>六、兒童隱私</h2>
